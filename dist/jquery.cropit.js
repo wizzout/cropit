@@ -271,7 +271,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.zoomer = new _Zoomer2['default']();
 
 	      if (this.options.allowDragNDrop) {
-	        _jquery2['default'].event.props.push('dataTransfer');
+
+	        if (_jquery2['default'].event.props === undefined) {
+	          _jquery2['default'].event.addProp('dataTransfer');
+	        } else {
+	          _jquery2['default'].event.props.push('dataTransfer');
+	        }
 	      }
 
 	      this.bindListeners();
